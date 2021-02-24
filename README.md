@@ -8,7 +8,7 @@ To use this, you must provide the following executables when you clone this repo
  - [uber-apk-signer](https://github.com/patrickfav/uber-apk-signer) expected is ver 1.2.1
  - [adb](https://adbdownload.com/)
  
-Also needed are a working java install and a way to compile the code obviously
+Also needed is [JDK 15](https://www.oracle.com/java/technologies/javase-jdk15-downloads.html)
 
 # Patching
 when all these executables are present in the root of the repository you can compile the program with the makefile and run the patcher.
