@@ -121,6 +121,14 @@ void copyFile(string src, string dst)
     std::filesystem::copy(src.c_str(), dst.c_str());
 }
 
+void WaitForEnter()
+{
+    cout << "Press enter to continue..." << endl;
+    do 
+    {} 
+    while (getchar() != '\n');
+}
+
 int main()
 {
     string target = "invalid";
@@ -197,6 +205,15 @@ int main()
     // remove working Dir
     cmd = "RD /S /Q \"workingDir\""; 
     output = exec(cmd.c_str());
+
+    // seperator showing stuff is done
+    cout << endl << "---------------------------" << endl;
+    
+    // actually tell the user it's done
+    cout << "Done Patching, Have Fun!" << endl;
+
+    // waits for enter so the command line doesn't close immediately on the person using it, so they have time to see it be done
+    WaitForEnter();
     
     return 0;
 }
