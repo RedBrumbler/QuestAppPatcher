@@ -10,6 +10,7 @@ To use this, you must provide the following executables when you clone this repo
    - [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
    - [Mac](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip)
    - [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
+
 Also needed is [JDK 15](https://www.oracle.com/java/technologies/javase-jdk15-downloads.html)
 
 # Patching
