@@ -1,3 +1,4 @@
 *.exe
 *.jar
 obj/
+workingDir/
