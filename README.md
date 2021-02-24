@@ -4,8 +4,8 @@ This program is a CLI tool that allows you to patch any app on your quest automa
 
 To use this, you must provide the following executables when you clone this repo:
 
- - [apktool](https://ibotpeaches.github.io/Apktool/)
- - [uber-apk-signer](https://github.com/patrickfav/uber-apk-signer)
+ - [apktool](https://ibotpeaches.github.io/Apktool/), expected is ver 2.5.0
+ - [uber-apk-signer](https://github.com/patrickfav/uber-apk-signer) expected is ver 1.2.1
  - [adb](https://adbdownload.com/)
 
 # Patching
