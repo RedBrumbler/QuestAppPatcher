@@ -1,6 +1,6 @@
 # Quest App Patcher
 
-This program is a CLI tool that allows you to patch any app on your quest automatically to allow it to load mods, this is done through injecting 2 libs into the apk, signing it and reinstalling it, all done through command line interfacing in c++
+This program is a CLI tool that allows you to patch any **il2cpp unity app** on your quest automatically to allow it to load mods, this is done through injecting 2 libs into the apk, signing it and reinstalling it, all done through command line interfacing in c++
 
 To use this, you must provide the following executables when you clone this repo:
 
