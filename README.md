@@ -6,8 +6,10 @@ To use this, you must provide the following executables when you clone this repo
 
  - [apktool](https://ibotpeaches.github.io/Apktool/), expected is ver 2.5.0
  - [uber-apk-signer](https://github.com/patrickfav/uber-apk-signer) expected is ver 1.2.1
- - [adb](https://adbdownload.com/)
- 
+ - Android Debug Bridge (ADB)
+   - [Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
+   - [Mac](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip)
+   - [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
 Also needed is [JDK 15](https://www.oracle.com/java/technologies/javase-jdk15-downloads.html)
 
 # Patching
