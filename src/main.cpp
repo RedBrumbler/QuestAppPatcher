@@ -27,6 +27,7 @@ std::string exec(const char* cmd) {
 
 std::vector<std::string> linesToVector(std::string text)
 {
+    // turns a piece of text seperated by newlines into a vector of strings
     vector<string> result = {};
     string current = "";    
     for (auto c : text)
@@ -47,7 +48,6 @@ bool isInstalled(vector<string>& list, string target)
 {
     for (string p : list)
     {
-        cout << p << endl;
         p.erase(0, p.find_first_of(':') + 1);
         if (p.find('\n') != string::npos) p.erase(p.find_first_of('\n'));
         if (p == target) return true;
@@ -96,6 +96,7 @@ string uninstall(string apkName)
 
 string modManifest(string manifest)
 {
+    // adds the file perm requirements into the manifest
     string writePerms = "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>";
     string readPerms = "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>";
     string newManifest = manifest.substr(0, manifest.find_first_of('\n')) + "\n";
@@ -137,15 +138,17 @@ int main()
         exit(0);
     }
 
-    // get the app out of the headset, onto the local pc
+    // get the app path so we can get it
     std::string cmd = "adb shell pm path " + target;
     std::string appPath = exec(cmd.c_str());
     appPath.erase(0, appPath.find_first_of(':') + 1);
     appPath.erase(appPath.find_first_of('\n'));
 
+    // make a temp directory
     cmd = "mkdir workingDir";
     string output = exec(cmd.c_str());
 
+    // pull the apk onto the current pc
     cmd = "adb pull " + appPath + " ./workingDir/" + target + ".apk";
     output = exec(cmd.c_str());
 
@@ -171,26 +174,29 @@ int main()
     fprintf(fp, "%s", newManifest.c_str());
     fclose(fp);
 
+    // compile the apk
     output = compile(target);
 
+    // sign the apk
     output = sign(target);
 
+    // uninstall the apk
     output = uninstall(target);
-    cout << output << endl;
     
-    cout << "Cleaning up working dir" << endl;
-
+    // move the old app into a different dir so we can rename the other one
     cmd = "move \".\\workingDir\\" + target + ".apk\" \".\\workingDir\\" + target + "\\" + target + ".apk\""; 
     output = exec(cmd.c_str());
     
+    // rename signed apk
     cmd = "move \".\\workingDir\\" + target + "-aligned-debugSigned.apk\" \".\\workingDir\\" + target + ".apk\""; 
     output = exec(cmd.c_str());
 
+    // install app
     output = install(target);
 
+    // remove working Dir
     cmd = "RD /S /Q \"workingDir\""; 
     output = exec(cmd.c_str());
     
-    cout << output << endl;
     return 0;
 }
